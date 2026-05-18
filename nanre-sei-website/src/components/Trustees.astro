@@ -10,6 +10,7 @@ const trustees = [
     parent:  "S/o G.K. Panchanatham",
     city:    "Singanallur, Coimbatore",
     initials:"GS",
+    initialsTA:"ஜி.பி",
     color:   "avatar-orange",
   },
   {
@@ -20,6 +21,7 @@ const trustees = [
     parent:  "S/o Jayaraman",
     city:    "Whitefield, Bengaluru",
     initials:"JB",
+    initialsTA:"ஜே.பா",
     color:   "avatar-blue",
   },
   {
@@ -30,6 +32,7 @@ const trustees = [
     parent:  "S/o Muthukrishnan",
     city:    "Goldwins, Coimbatore",
     initials:"SD",
+    initialsTA:"எம்.ச",
     color:   "avatar-green",
   },
   {
@@ -40,6 +43,7 @@ const trustees = [
     parent:  "S/o Kannan",
     city:    "Madiwala, Bengaluru",
     initials:"KB",
+    initialsTA:"கே.ப",
     color:   "avatar-purple",
   },
   {
@@ -50,6 +54,7 @@ const trustees = [
     parent:  "S/o Palanisamy",
     city:    "Veerapandi, Tiruppur",
     initials:"PP",
+    initialsTA:"பி.பி",
     color:   "avatar-teal",
   },
   {
@@ -60,6 +65,7 @@ const trustees = [
     parent:  "S/o Murugesan",
     city:    "Jawahar Nagar, Chennai",
     initials:"MB",
+    initialsTA:"எம்.பா",
     color:   "avatar-rose",
   },
 ];
@@ -90,9 +96,9 @@ const roleOrder = ["Managing Trustee", "Secretary", "Treasurer", "Trustee"];
     <div class="trustees-grid">
       {trustees.map((t, i) => (
         <div class="trustee-card" style={`animation-delay: ${i * 0.07}s`}>
-          <!-- Avatar -->
           <div class={`trustee-avatar ${t.color}`}>
-            {t.initials}
+            <span class="lang-en">{t.initials}</span>
+            <span class="lang-ta">{t.initialsTA}</span>
           </div>
 
           <!-- Role badge -->

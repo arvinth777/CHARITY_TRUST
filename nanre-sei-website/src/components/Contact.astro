@@ -34,7 +34,7 @@ const { form } = contact;
               name="fullName"
               required
               autocomplete="name"
-              placeholder="Your full name"
+              placeholder="Your full name / உங்கள் முழு பெயர்"
             />
           </div>
 
@@ -50,7 +50,7 @@ const { form } = contact;
                 name="email"
                 required
                 autocomplete="email"
-                placeholder="you@example.com"
+                placeholder="you@example.com / மின்னஞ்சல்"
               />
             </div>
             <div class="form-group">
@@ -76,7 +76,7 @@ const { form } = contact;
             </label>
             <select id="enquiry-type" name="enquiryType" required>
               <option value="" disabled selected>
-                <span class="lang-en">Select enquiry type</span>
+                <span class="lang-en">Select enquiry type / விசாரணை வகையை தேர்ந்தெடுக்கவும்</span>
               </option>
               {form.enquiryOptions.map(opt => (
                 <option value={opt.value}>
@@ -96,7 +96,7 @@ const { form } = contact;
               id="subject"
               name="subject"
               required
-              placeholder="Brief subject"
+              placeholder="Brief subject / பொருள்"
             />
           </div>
 
@@ -110,7 +110,7 @@ const { form } = contact;
               name="message"
               rows="5"
               required
-              placeholder="Your message..."
+              placeholder="Your message... / உங்கள் செய்தி..."
             ></textarea>
           </div>
 
@@ -118,7 +118,7 @@ const { form } = contact;
           <div class="recaptcha-placeholder">
             <div class="recaptcha-box">
               <input type="checkbox" id="not-robot" />
-              <label for="not-robot">I'm not a robot</label>
+              <label for="not-robot">I'm not a robot / நான் ரோபோ அல்ல</label>
             </div>
           </div>
 
