@@ -64,12 +64,6 @@ const { gallery, galleryCategories } = siteConfig;
               loading="lazy"
               class="gallery-card-img"
             />
-            <div class="gallery-card-overlay">
-              <p class="gallery-card-caption">
-                <span class="lang-en">{item.caption.en}</span>
-                <span class="lang-ta">{item.caption.ta}</span>
-              </p>
-            </div>
           </div>
         ))}
       </div>
@@ -89,6 +83,20 @@ const { gallery, galleryCategories } = siteConfig;
         </a>
       </div>
     </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="gallery-lightbox" class="lightbox" style="display:none" aria-hidden="true">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous image">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    <img id="lightbox-img" src="" alt="Expanded gallery view" />
+    <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next image">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
   </div>
 </section>
 
@@ -133,6 +141,62 @@ const { gallery, galleryCategories } = siteConfig;
     document.getElementById('gallery-video-content').style.display = '';
     document.getElementById('tab-video').classList.add('active');
     document.getElementById('tab-photo').classList.remove('active');
+  });
+
+  // Lightbox logic
+  const lightbox = document.getElementById('gallery-lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const btnClose = document.getElementById('lightbox-close');
+  const btnPrev = document.getElementById('lightbox-prev');
+  const btnNext = document.getElementById('lightbox-next');
+  let currentImages = [];
+  let currentIndex = 0;
+
+  document.getElementById('gallery-grid')?.addEventListener('click', (e) => {
+    const card = e.target.closest('.gallery-card');
+    if (card) {
+      currentImages = Array.from(document.querySelectorAll('.gallery-card')).filter(c => c.style.display !== 'none');
+      currentIndex = currentImages.indexOf(card);
+      if (currentIndex !== -1) {
+        lightboxImg.src = card.querySelector('img').src;
+        lightbox.style.display = 'flex';
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+  });
+
+  function updateLightboxImage() {
+    if (currentImages.length > 0 && currentIndex >= 0) {
+      lightboxImg.src = currentImages[currentIndex].querySelector('img').src;
+    }
+  }
+
+  function hideLightbox() {
+    lightbox.style.display = 'none';
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  btnClose?.addEventListener('click', hideLightbox);
+  lightbox?.addEventListener('click', (e) => { if (e.target === lightbox) hideLightbox(); });
+
+  btnPrev?.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+    updateLightboxImage();
+  });
+
+  btnNext?.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % currentImages.length;
+    updateLightboxImage();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (lightbox?.style.display === 'flex') {
+      if (e.key === 'Escape') hideLightbox();
+      if (e.key === 'ArrowLeft') btnPrev.click();
+      if (e.key === 'ArrowRight') btnNext.click();
+    }
   });
 </script>
 
@@ -243,44 +307,62 @@ const { gallery, galleryCategories } = siteConfig;
     transition: transform 0.45s ease;
   }
 
-  .gallery-card-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.75) 0%,
-      rgba(0, 0, 0, 0.2) 50%,
-      transparent 100%
-    );
-    display: flex;
-    align-items: flex-end;
-    padding: 1rem;
-    transition: background 0.35s ease;
-  }
-
   .gallery-card:hover .gallery-card-img {
-    transform: scale(1.08);
+    transform: scale(1.05);
   }
 
-  .gallery-card:hover .gallery-card-overlay {
-    background: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.85) 0%,
-      rgba(0, 0, 0, 0.35) 55%,
-      transparent 100%
-    );
+  /* Lightbox */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-
-  .gallery-card-caption {
+  
+  .lightbox img {
+    max-width: 90%;
+    max-height: 90vh;
+    border-radius: 6px;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+    user-select: none;
+  }
+  
+  .lightbox-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: rgba(255,255,255,0.1);
+    border: none;
     color: white;
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    text-align: center;
-    width: 100%;
-    line-height: 1.3;
+    cursor: pointer;
+    padding: 0.75rem;
+    border-radius: 50%;
+    backdrop-filter: blur(4px);
+    transition: background 0.2s;
   }
+  
+  .lightbox-close:hover { background: rgba(255,255,255,0.25); }
+  
+  .lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: white;
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: 50%;
+    backdrop-filter: blur(4px);
+    transition: background 0.2s;
+  }
+  
+  .lightbox-nav:hover { background: rgba(255,255,255,0.25); }
+  .lightbox-prev { left: 1.5rem; }
+  .lightbox-next { right: 1.5rem; }
 
   /* Video placeholder */
   .video-placeholder {
@@ -324,5 +406,9 @@ const { gallery, galleryCategories } = siteConfig;
 
   @media (max-width: 480px) {
     .gallery-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+    .lightbox-nav { padding: 0.5rem; }
+    .lightbox-prev { left: 0.5rem; }
+    .lightbox-next { right: 0.5rem; }
+    .lightbox-close { top: 1rem; right: 1rem; padding: 0.5rem; }
   }
 </style>
