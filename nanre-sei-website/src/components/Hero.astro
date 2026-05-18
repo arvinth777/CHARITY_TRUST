@@ -10,11 +10,7 @@ const { heroSlides } = siteConfig;
 
     <!-- Slide 1: Saffron-to-deep-blue -->
     <div class="hero-slide slide-1 active" aria-hidden="false">
-      <div class="slide-bg">
-        <svg class="slide-pattern" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="p1" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1.5" fill="rgba(255,255,255,0.12)"/></pattern></defs><rect width="600" height="600" fill="url(#p1)"/></svg>
-        <div class="slide-shape shape-circle"></div>
-        <div class="slide-shape shape-ring"></div>
-      </div>
+      <div class="slide-bg"></div>
       <div class="hero-content">
         <div class="hero-eyebrow">
           <span class="lang-en">Est. 2018 · Coimbatore</span>
@@ -37,11 +33,7 @@ const { heroSlides } = siteConfig;
 
     <!-- Slide 2: Deep blue -->
     <div class="hero-slide slide-2" aria-hidden="true">
-      <div class="slide-bg">
-        <svg class="slide-pattern" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="p2" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="1.5" height="50" fill="rgba(255,255,255,0.06)"/><rect x="0" y="0" width="50" height="1.5" fill="rgba(255,255,255,0.06)"/></pattern></defs><rect width="600" height="600" fill="url(#p2)"/></svg>
-        <div class="slide-shape shape-diamond"></div>
-        <div class="slide-shape shape-arc"></div>
-      </div>
+      <div class="slide-bg"></div>
       <div class="hero-content">
         <div class="hero-eyebrow">
           <span class="lang-en">Free Bicycles · Books · Tuition</span>
@@ -64,10 +56,7 @@ const { heroSlides } = siteConfig;
 
     <!-- Slide 3: Forest green -->
     <div class="hero-slide slide-3" aria-hidden="true">
-      <div class="slide-bg">
-        <svg class="slide-pattern" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="p3" x="0" y="0" width="30" height="52" patternUnits="userSpaceOnUse"><polygon points="15,0 30,26 0,26" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/></pattern></defs><rect width="600" height="600" fill="url(#p3)"/></svg>
-        <div class="slide-shape shape-blob"></div>
-      </div>
+      <div class="slide-bg"></div>
       <div class="hero-content">
         <div class="hero-eyebrow">
           <span class="lang-en">Reg. No. 143/2018 · Tamil Nadu</span>
@@ -172,9 +161,9 @@ const { heroSlides } = siteConfig;
   }
 
   /* Slide backgrounds */
-  .slide-1 { background: linear-gradient(135deg, #C2410C 0%, #7C2D12 35%, #1E3A8A 100%); }
-  .slide-2 { background: linear-gradient(135deg, #1E3A8A 0%, #1e40af 50%, #0F172A 100%); }
-  .slide-3 { background: linear-gradient(135deg, #14532D 0%, #166534 50%, #1E3A8A 100%); }
+  .slide-1 { background: #1E3A8A; } /* Deep Blue */
+  .slide-2 { background: #0F172A; } /* Slate */
+  .slide-3 { background: #166534; } /* Forest Green */
 
   .slide-bg {
     position: absolute;
@@ -182,47 +171,7 @@ const { heroSlides } = siteConfig;
     overflow: hidden;
   }
 
-  .slide-pattern {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.9;
-  }
 
-  /* Decorative shapes */
-  .slide-shape {
-    position: absolute;
-    border-radius: 50%;
-  }
-
-  .shape-circle {
-    width: 520px; height: 520px;
-    border: 2px solid rgba(255,255,255,0.08);
-    top: -120px; right: -120px;
-  }
-  .shape-ring {
-    width: 300px; height: 300px;
-    border: 40px solid rgba(255,255,255,0.05);
-    bottom: -80px; left: -80px;
-  }
-  .shape-diamond {
-    width: 400px; height: 400px;
-    border: 2px solid rgba(255,255,255,0.07);
-    top: -100px; right: -50px;
-    transform: rotate(45deg);
-    border-radius: 48px;
-  }
-  .shape-arc {
-    width: 250px; height: 250px;
-    background: rgba(255,255,255,0.04);
-    bottom: -60px; left: 10%;
-  }
-  .shape-blob {
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
-    top: -100px; right: -100px;
-  }
 
   .hero-slider {
     position: absolute;
@@ -260,17 +209,12 @@ const { heroSlides } = siteConfig;
 
   .hero-eyebrow {
     display: inline-block;
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.3);
-    color: rgba(255,255,255,0.95);
-    font-size: 0.8rem;
+    color: #FDBA74;
+    font-size: 0.85rem;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    padding: 0.35rem 1rem;
-    border-radius: 100px;
     margin-bottom: 1.5rem;
-    backdrop-filter: blur(6px);
     animation: heroTextIn 0.8s ease both;
   }
 
@@ -413,6 +357,5 @@ const { heroSlides } = siteConfig;
     .hero-prev { left: 0.75rem; }
     .hero-next { right: 0.75rem; }
     .hero-arrow { width: 38px; height: 38px; }
-    .shape-circle, .shape-ring, .shape-diamond, .shape-arc, .shape-blob { display: none; }
   }
 </style>

@@ -62,34 +62,11 @@ const icons: Record<string, string> = {
     margin: 0 auto 3.5rem;
   }
 
-  .section-eyebrow {
-    display: inline-block;
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #C2410C;
-    background: #FFF7ED;
-    border: 1px solid #FDBA74;
-    padding: 0.3rem 1rem;
-    border-radius: 100px;
-    margin-bottom: 1rem;
-  }
+  
 
-  .section-title {
-    font-family: 'Playfair Display', 'Noto Serif Tamil', serif;
-    font-size: clamp(1.75rem, 3vw, 2.4rem);
-    font-weight: 700;
-    color: #1C1917;
-    line-height: 1.25;
-    margin-bottom: 1rem;
-  }
+  
 
-  .section-desc {
-    font-size: 1rem;
-    color: #6B7280;
-    line-height: 1.7;
-  }
+  
 
   .work-grid {
     display: grid;
@@ -108,45 +85,27 @@ const icons: Record<string, string> = {
     animation: fadeInUp 0.6s ease both;
   }
 
-  .work-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #C2410C, #1E3A8A);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.35s ease;
-  }
-
   .work-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 40px rgba(0,0,0,0.1);
-    border-color: #C2410C;
-  }
-
-  .work-card:hover::before {
-    transform: scaleX(1);
+    transform: translateY(-4px);
+    border-color: #D1D5DB;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.03);
   }
 
   .work-card-icon {
-    width: 64px;
-    height: 64px;
-    background: linear-gradient(135deg, #FFF7ED, #FED7AA);
-    border-radius: 16px;
+    width: 56px;
+    height: 56px;
+    background: #F3F4F6;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 1.25rem;
-    color: #C2410C;
-    transition: transform 0.3s ease;
+    color: #1E3A8A;
+    transition: all 0.3s ease;
   }
 
   .work-card:hover .work-card-icon {
-    transform: scale(1.1) rotate(-5deg);
-    background: linear-gradient(135deg, #C2410C, #9A3412);
+    background: #1E3A8A;
     color: white;
   }
 

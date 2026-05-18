@@ -141,6 +141,34 @@ const jsonLd = {
         .section-pad { padding-block: 3rem; }
       }
 
+      /* ── Typography & Headers ── */
+      .section-eyebrow {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: #6B7280;
+        margin-bottom: 0.85rem;
+      }
+
+      .section-title {
+        font-family: 'Playfair Display', 'Noto Serif Tamil', serif;
+        font-size: clamp(1.75rem, 3vw, 2.4rem);
+        font-weight: 700;
+        color: #1C1917;
+        line-height: 1.25;
+        margin-bottom: 1rem;
+      }
+
+      .section-desc {
+        font-size: 1.05rem;
+        color: #6B7280;
+        line-height: 1.7;
+        max-width: 640px;
+        margin-inline: auto;
+      }
+
       /* ── Animations ── */
       @keyframes fadeInUp {
         from { opacity: 0; transform: translateY(30px); }
