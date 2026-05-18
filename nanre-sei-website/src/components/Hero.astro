@@ -7,7 +7,7 @@ const { heroSlides } = siteConfig;
 <section id="hero" class="hero" aria-label="Hero banner">
   <!-- Watermark Logo -->
   <div class="hero-watermark">
-    <img src="/logo.png" alt="" aria-hidden="true" />
+    <img src="/watermark-logo.jpg" alt="" aria-hidden="true" />
   </div>
 
   <!-- Slides -->
@@ -178,7 +178,8 @@ const { heroSlides } = siteConfig;
   .hero-watermark img {
     width: 900px;
     height: auto;
-    filter: grayscale(100%) brightness(1000%);
+    filter: invert(1) grayscale(100%);
+    mix-blend-mode: screen;
   }
 
   /* Slide backgrounds */
