@@ -344,7 +344,7 @@ export const siteConfig = {
 
   contact: {
     whatsapp: '919XXXXXXXXX',
-    facebook: 'https://www.facebook.com/nanreseitrust',
+    facebook: 'https://www.facebook.com/profile.php?id=100079057519906',
     email: 'contact@nanreseitrust.org',
     address: {
       en: 'Nanre Sei Public Charitable Trust, Coimbatore, Tamil Nadu - 641001',

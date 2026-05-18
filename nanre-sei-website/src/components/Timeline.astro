@@ -12,6 +12,10 @@ const categoryLabels: Record<string, { en: string; ta: string }> = {
   digital:  { en: '💻 Digital', ta: '💻 டிஜிட்டல்' },
   events:   { en: '🏆 Events', ta: '🏆 நிகழ்வுகள்' },
 };
+
+// Only show filter buttons for categories that actually exist in the timeline data
+const existingCategories = new Set(timeline.map(item => item.category));
+const activeCategories = Object.entries(categoryLabels).filter(([key]) => key === 'all' || existingCategories.has(key));
 ---
 
 <section id="timeline" class="timeline-section section-pad">
@@ -30,7 +34,7 @@ const categoryLabels: Record<string, { en: string; ta: string }> = {
 
     <!-- Category Filter Buttons -->
     <div class="timeline-filters" role="group" aria-label="Filter timeline by category">
-      {Object.entries(categoryLabels).map(([key, label]) => (
+      {activeCategories.map(([key, label]) => (
         <button
           class={`filter-btn ${key === 'all' ? 'active' : ''}`}
           data-filter={key}
