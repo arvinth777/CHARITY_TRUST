@@ -168,18 +168,16 @@ const { heroSlides } = siteConfig;
   .hero-watermark {
     position: absolute;
     top: 50%;
-    right: -2%;
+    right: 5%;
     transform: translateY(-50%);
     z-index: 1;
-    opacity: 0.15;
+    opacity: 0.25;
     pointer-events: none;
   }
 
   .hero-watermark img {
     width: 450px;
     height: auto;
-    filter: invert(1) grayscale(100%);
-    mix-blend-mode: screen;
   }
 
   /* Slide backgrounds */
@@ -372,7 +370,7 @@ const { heroSlides } = siteConfig;
 
   /* Mobile */
   @media (max-width: 1023px) {
-    .hero-watermark { right: -5%; }
+    .hero-watermark { right: 2%; }
     .hero-watermark img { width: 350px; }
   }
 
@@ -384,7 +382,7 @@ const { heroSlides } = siteConfig;
     .hero-prev { left: 0.75rem; }
     .hero-next { right: 0.75rem; }
     .hero-arrow { width: 38px; height: 38px; }
-    .hero-watermark { right: -10%; }
+    .hero-watermark { right: 0%; }
     .hero-watermark img { width: 250px; }
   }
 </style>
