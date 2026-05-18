@@ -1,0 +1,176 @@
+---
+// src/components/Work.astro
+import { siteConfig } from '../config/site';
+const { workCategories } = siteConfig;
+
+// SVG icons map
+const icons: Record<string, string> = {
+  bicycle: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"><circle cx="18.5" cy="17.5" r="3.5"/><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="15" cy="5" r="1"/><path d="M12 17.5V14l-3-3 4-3 2 3h2"/><polyline points="2.5 17.5 12 17.5 10 14"/></svg>`,
+  book: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>`,
+  school: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
+  tablet: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>`,
+  heart: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`,
+  trophy: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"><polyline points="8 21 12 17 16 21"/><line x1="12" y1="17" x2="12" y2="11"/><path d="M7 4H4a2 2 0 0 0-2 2v1a4 4 0 0 0 4 4h16a4 4 0 0 0 4-4V6a2 2 0 0 0-2-2h-3"/><rect x="5" y="2" width="14" height="9" rx="2"/></svg>`,
+};
+---
+
+<section id="work" class="work-section section-pad">
+  <div class="section-container">
+    <!-- Heading -->
+    <div class="work-header">
+      <span class="section-eyebrow">
+        <span class="lang-en">What We Do</span>
+        <span class="lang-ta">எங்கள் பணி</span>
+      </span>
+      <h2 class="section-title">
+        <span class="lang-en">Our Programs & Initiatives</span>
+        <span class="lang-ta">எங்கள் திட்டங்கள் & முயற்சிகள்</span>
+      </h2>
+      <p class="section-desc">
+        <span class="lang-en">Six pillars of change — every effort brings us closer to a more equitable Coimbatore.</span>
+        <span class="lang-ta">மாற்றத்தின் ஆறு தூண்கள் — ஒவ்வொரு முயற்சியும் மிகவும் சமத்துவமான கோயம்புத்தூரை நோக்கி அழைத்துச் செல்கிறது.</span>
+      </p>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="work-grid">
+      {workCategories.map((cat, i) => (
+        <div class="work-card" style={`animation-delay: ${i * 0.08}s`}>
+          <div class="work-card-icon" set:html={icons[cat.icon] || icons.book}></div>
+          <h3 class="work-card-title">
+            <span class="lang-en">{cat.title.en}</span>
+            <span class="lang-ta">{cat.title.ta}</span>
+          </h3>
+          <p class="work-card-desc">
+            <span class="lang-en">{cat.description.en}</span>
+            <span class="lang-ta">{cat.description.ta}</span>
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .work-section {
+    background: #F9FAFB;
+  }
+
+  .work-header {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 3.5rem;
+  }
+
+  .section-eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #C2410C;
+    background: #FFF7ED;
+    border: 1px solid #FDBA74;
+    padding: 0.3rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', 'Noto Serif Tamil', serif;
+    font-size: clamp(1.75rem, 3vw, 2.4rem);
+    font-weight: 700;
+    color: #1C1917;
+    line-height: 1.25;
+    margin-bottom: 1rem;
+  }
+
+  .section-desc {
+    font-size: 1rem;
+    color: #6B7280;
+    line-height: 1.7;
+  }
+
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .work-card {
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 16px;
+    padding: 2rem 1.75rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.6s ease both;
+  }
+
+  .work-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #C2410C, #1E3A8A);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+
+  .work-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+    border-color: #C2410C;
+  }
+
+  .work-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .work-card-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #FFF7ED, #FED7AA);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    color: #C2410C;
+    transition: transform 0.3s ease;
+  }
+
+  .work-card:hover .work-card-icon {
+    transform: scale(1.1) rotate(-5deg);
+    background: linear-gradient(135deg, #C2410C, #9A3412);
+    color: white;
+  }
+
+  .work-card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1C1917;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .work-card-desc {
+    font-size: 0.92rem;
+    color: #6B7280;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  @media (max-width: 1023px) {
+    .work-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 640px) {
+    .work-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .work-card { padding: 1.5rem; }
+  }
+</style>

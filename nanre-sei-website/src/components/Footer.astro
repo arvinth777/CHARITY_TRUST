@@ -1,0 +1,290 @@
+---
+// src/components/Footer.astro
+import { siteConfig } from '../config/site';
+const { footer, contact, nav, name } = siteConfig;
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="section-container">
+    <div class="footer-grid">
+      <!-- Brand Column -->
+      <div class="footer-brand">
+        <a href="/" class="footer-logo-link">
+          <img src="/logo.png" alt="Nanre Sei Trust Logo" width="60" height="60" class="footer-logo" />
+        </a>
+        <p class="footer-tagline">
+          <span class="lang-en">{siteConfig.tagline.en}</span>
+          <span class="lang-ta">{siteConfig.tagline.ta}</span>
+        </p>
+        <div class="footer-social">
+          <a href={contact.facebook} target="_blank" rel="noopener" class="social-icon" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href={`https://wa.me/${contact.whatsapp}`} target="_blank" rel="noopener" class="social-icon" aria-label="WhatsApp">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+            </svg>
+          </a>
+          <a href={`mailto:${contact.email}`} class="social-icon" aria-label="Email">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-links-col">
+        <h4 class="footer-col-heading">
+          <span class="lang-en">Quick Links</span>
+          <span class="lang-ta">விரைவு இணைப்புகள்</span>
+        </h4>
+        <ul class="footer-links">
+          <li><a href="#about">
+            <span class="lang-en">{nav.about.en}</span>
+            <span class="lang-ta">{nav.about.ta}</span>
+          </a></li>
+          <li><a href="#work">
+            <span class="lang-en">{nav.work.en}</span>
+            <span class="lang-ta">{nav.work.ta}</span>
+          </a></li>
+          <li><a href="#timeline">
+            <span class="lang-en">{nav.timeline.en}</span>
+            <span class="lang-ta">{nav.timeline.ta}</span>
+          </a></li>
+          <li><a href="#gallery">
+            <span class="lang-en">{nav.gallery.en}</span>
+            <span class="lang-ta">{nav.gallery.ta}</span>
+          </a></li>
+          <li><a href="#donate">
+            <span class="lang-en">{nav.donate.en}</span>
+            <span class="lang-ta">{nav.donate.ta}</span>
+          </a></li>
+          <li><a href="#contact">
+            <span class="lang-en">{nav.contact.en}</span>
+            <span class="lang-ta">{nav.contact.ta}</span>
+          </a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="footer-links-col">
+        <h4 class="footer-col-heading">
+          <span class="lang-en">Contact</span>
+          <span class="lang-ta">தொடர்பு</span>
+        </h4>
+        <ul class="footer-links">
+          <li>
+            <a href={`mailto:${contact.email}`}>{contact.email}</a>
+          </li>
+          <li>
+            <a href={`https://wa.me/${contact.whatsapp}`} target="_blank" rel="noopener">
+              <span class="lang-en">WhatsApp Us</span>
+              <span class="lang-ta">வாட்ஸ்அப் தொடர்பு</span>
+            </a>
+          </li>
+          <li class="footer-address">
+            <span class="lang-en">{siteConfig.contact.address.en}</span>
+            <span class="lang-ta">{siteConfig.contact.address.ta}</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Language Toggle + Donate CTA -->
+      <div class="footer-cta-col">
+        <h4 class="footer-col-heading">
+          <span class="lang-en">Support Us</span>
+          <span class="lang-ta">ஆதரிக்கவும்</span>
+        </h4>
+        <a href="#donate" class="footer-donate-btn">
+          <span class="lang-en">Donate Now ❤️</span>
+          <span class="lang-ta">நன்கொடை செய்யுங்கள் ❤️</span>
+        </a>
+        <button onclick="toggleLang()" class="footer-lang-btn" aria-label="Switch language">
+          <span class="lang-en">🌐 Switch to தமிழ்</span>
+          <span class="lang-ta">🌐 Switch to English</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+      <p class="footer-legal">
+        <span class="lang-en">{footer.legal.en}</span>
+        <span class="lang-ta">{footer.legal.ta}</span>
+      </p>
+      <p class="footer-copyright">
+        © {year} <span class="lang-en">{footer.copyright.en}</span>
+        <span class="lang-ta">{footer.copyright.ta}</span>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: linear-gradient(135deg, #111827 0%, #1C1917 100%);
+    color: rgba(255,255,255,0.8);
+    padding-block: 4rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  /* Brand */
+  .footer-logo-link {
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+
+  .footer-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255,255,255,0.2);
+  }
+
+  .footer-tagline {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 1.25rem;
+    max-width: 220px;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 8px;
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .social-icon:hover {
+    background: #C2410C;
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  /* Links columns */
+  .footer-col-heading {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 1.1rem;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .footer-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+  }
+
+  .footer-links a:hover { color: #FDBA74; }
+
+  .footer-address {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+  }
+
+  /* CTA column */
+  .footer-cta-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .footer-donate-btn {
+    display: block;
+    background: #C2410C;
+    color: white;
+    padding: 0.8rem 1.25rem;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all 0.25s ease;
+  }
+
+  .footer-donate-btn:hover {
+    background: #9A3412;
+    transform: translateY(-2px);
+  }
+
+  .footer-lang-btn {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.8);
+    padding: 0.7rem 1.25rem;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Lato', 'Noto Sans Tamil', sans-serif;
+    text-align: center;
+  }
+
+  .footer-lang-btn:hover {
+    background: rgba(255,255,255,0.15);
+    color: white;
+  }
+
+  /* Bottom Bar */
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .footer-legal,
+  .footer-copyright {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.45);
+  }
+
+  /* Responsive */
+  @media (max-width: 1023px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  }
+
+  @media (max-width: 640px) {
+    .footer-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+  }
+</style>

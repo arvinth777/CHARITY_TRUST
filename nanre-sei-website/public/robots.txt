@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nanreseitrust.org/sitemap-index.xml

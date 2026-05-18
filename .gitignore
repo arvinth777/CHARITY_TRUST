@@ -1,0 +1,5 @@
+node_modules/
+.DS_Store
+nanre-sei-website/node_modules/
+nanre-sei-website/dist/
+nanre-sei-website/.astro/

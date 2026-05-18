@@ -1,0 +1,445 @@
+---
+// src/components/Hero.astro
+import { siteConfig } from '../config/site';
+const { heroSlides } = siteConfig;
+---
+
+<section id="hero" class="hero" aria-label="Hero banner">
+  <!-- Slides -->
+  <div class="hero-slider" id="hero-slider">
+
+    <!-- Slide 1: Saffron-to-deep-blue -->
+    <div class="hero-slide slide-1 active" aria-hidden="false">
+      <div class="slide-bg">
+        <svg class="slide-pattern" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="p1" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1.5" fill="rgba(255,255,255,0.12)"/></pattern></defs><rect width="600" height="600" fill="url(#p1)"/></svg>
+        <div class="slide-shape shape-circle"></div>
+        <div class="slide-shape shape-ring"></div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span class="lang-en">Est. 2018 · Coimbatore</span>
+          <span class="lang-ta">நிறுவப்பட்டது 2018 · கோயம்புத்தூர்</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="lang-en">Join Us in Uplifting<br/>Coimbatore's Children</span>
+          <span class="lang-ta">கோயம்புத்தூர் குழந்தைகளை<br/>மேம்படுத்த எங்களுடன் இணையுங்கள்</span>
+        </h1>
+        <p class="hero-subtitle">
+          <span class="lang-en">Your support creates lasting change</span>
+          <span class="lang-ta">உங்கள் ஆதரவு நிலையான மாற்றத்தை உருவாக்குகிறது</span>
+        </p>
+        <div class="hero-ctas">
+          <a href="#donate" class="btn-primary"><span class="lang-en">Donate Now</span><span class="lang-ta">இப்போது நன்கொடை செய்யுங்கள்</span></a>
+          <a href="#about" class="btn-ghost"><span class="lang-en">Our Story</span><span class="lang-ta">எங்கள் கதை</span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2: Deep blue -->
+    <div class="hero-slide slide-2" aria-hidden="true">
+      <div class="slide-bg">
+        <svg class="slide-pattern" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="p2" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="1.5" height="50" fill="rgba(255,255,255,0.06)"/><rect x="0" y="0" width="50" height="1.5" fill="rgba(255,255,255,0.06)"/></pattern></defs><rect width="600" height="600" fill="url(#p2)"/></svg>
+        <div class="slide-shape shape-diamond"></div>
+        <div class="slide-shape shape-arc"></div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span class="lang-en">Free Bicycles · Books · Tuition</span>
+          <span class="lang-ta">இலவச சைக்கிள்கள் · புத்தகங்கள் · பயிற்சி</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="lang-en">Education &amp; Mobility<br/>For Every Child</span>
+          <span class="lang-ta">ஒவ்வொரு குழந்தைக்கும்<br/>கல்வியும் இயக்கமும்</span>
+        </h1>
+        <p class="hero-subtitle">
+          <span class="lang-en">Removing barriers so no child is left behind</span>
+          <span class="lang-ta">எந்த குழந்தையும் பின்தங்காதவாறு தடைகளை நீக்குகிறோம்</span>
+        </p>
+        <div class="hero-ctas">
+          <a href="#work" class="btn-primary"><span class="lang-en">Our Programs</span><span class="lang-ta">எங்கள் திட்டங்கள்</span></a>
+          <a href="#timeline" class="btn-ghost"><span class="lang-en">Our Journey</span><span class="lang-ta">எங்கள் பயணம்</span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3: Forest green -->
+    <div class="hero-slide slide-3" aria-hidden="true">
+      <div class="slide-bg">
+        <svg class="slide-pattern" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="p3" x="0" y="0" width="30" height="52" patternUnits="userSpaceOnUse"><polygon points="15,0 30,26 0,26" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/></pattern></defs><rect width="600" height="600" fill="url(#p3)"/></svg>
+        <div class="slide-shape shape-blob"></div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span class="lang-en">Reg. No. 143/2018 · Tamil Nadu</span>
+          <span class="lang-ta">பதிவு எண். 143/2018 · தமிழ்நாடு</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="lang-en">Together We Build<br/>Brighter Futures</span>
+          <span class="lang-ta">ஒன்றாக நாம் ஒளிமயமான<br/>எதிர்காலங்களை உருவாக்குகிறோம்</span>
+        </h1>
+        <p class="hero-subtitle">
+          <span class="lang-en">8+ years · 50+ bicycles · 200+ students in tuition</span>
+          <span class="lang-ta">8+ ஆண்டுகள் · 50+ சைக்கிள்கள் · 200+ மாணவர்கள்</span>
+        </p>
+        <div class="hero-ctas">
+          <a href="#donate" class="btn-primary"><span class="lang-en">Donate Now</span><span class="lang-ta">நன்கொடை செய்யுங்கள்</span></a>
+          <a href="#gallery" class="btn-ghost"><span class="lang-en">See Gallery</span><span class="lang-ta">படங்கள் காண்க</span></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Dot Indicators -->
+  <div class="hero-dots" role="tablist" aria-label="Slide navigation">
+    <button class="hero-dot active" data-slide="0" role="tab" aria-selected="true" aria-label="Slide 1" id="hero-dot-0"></button>
+    <button class="hero-dot" data-slide="1" role="tab" aria-selected="false" aria-label="Slide 2" id="hero-dot-1"></button>
+    <button class="hero-dot" data-slide="2" role="tab" aria-selected="false" aria-label="Slide 3" id="hero-dot-2"></button>
+  </div>
+
+  <!-- Prev / Next Arrows -->
+  <button class="hero-arrow hero-prev" id="hero-prev" aria-label="Previous slide">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+  </button>
+  <button class="hero-arrow hero-next" id="hero-next" aria-label="Next slide">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+  </button>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator" aria-hidden="true"><div class="scroll-arrow"></div></div>
+</section>
+
+<script is:inline>
+  (function () {
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.hero-dot');
+    const totalSlides = slides.length;
+    let current = 0;
+    let autoTimer;
+
+    function goTo(index) {
+      slides[current].classList.remove('active');
+      slides[current].setAttribute('aria-hidden', 'true');
+      dots[current].classList.remove('active');
+      dots[current].setAttribute('aria-selected', 'false');
+
+      current = (index + totalSlides) % totalSlides;
+
+      slides[current].classList.add('active');
+      slides[current].setAttribute('aria-hidden', 'false');
+      dots[current].classList.add('active');
+      dots[current].setAttribute('aria-selected', 'true');
+    }
+
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
+
+    function startAuto() {
+      autoTimer = setInterval(next, 5000);
+    }
+
+    function resetAuto() {
+      clearInterval(autoTimer);
+      startAuto();
+    }
+
+    // Dot click
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => { goTo(i); resetAuto(); });
+    });
+
+    // Arrow buttons
+    document.getElementById('hero-next')?.addEventListener('click', () => { next(); resetAuto(); });
+    document.getElementById('hero-prev')?.addEventListener('click', () => { prev(); resetAuto(); });
+
+    // Touch / swipe support
+    let touchStartX = 0;
+    const slider = document.getElementById('hero-slider');
+    slider?.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    slider?.addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) { diff > 0 ? next() : prev(); resetAuto(); }
+    });
+
+    startAuto();
+  })();
+</script>
+
+<style>
+  .hero {
+    position: relative;
+    height: 100svh;
+    min-height: 580px;
+    overflow: hidden;
+  }
+
+  /* Slide backgrounds */
+  .slide-1 { background: linear-gradient(135deg, #C2410C 0%, #7C2D12 35%, #1E3A8A 100%); }
+  .slide-2 { background: linear-gradient(135deg, #1E3A8A 0%, #1e40af 50%, #0F172A 100%); }
+  .slide-3 { background: linear-gradient(135deg, #14532D 0%, #166534 50%, #1E3A8A 100%); }
+
+  .slide-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .slide-pattern {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+  }
+
+  /* Decorative shapes */
+  .slide-shape {
+    position: absolute;
+    border-radius: 50%;
+  }
+
+  .shape-circle {
+    width: 520px; height: 520px;
+    border: 2px solid rgba(255,255,255,0.08);
+    top: -120px; right: -120px;
+  }
+  .shape-ring {
+    width: 300px; height: 300px;
+    border: 40px solid rgba(255,255,255,0.05);
+    bottom: -80px; left: -80px;
+  }
+  .shape-diamond {
+    width: 400px; height: 400px;
+    border: 2px solid rgba(255,255,255,0.07);
+    top: -100px; right: -50px;
+    transform: rotate(45deg);
+    border-radius: 48px;
+  }
+  .shape-arc {
+    width: 250px; height: 250px;
+    background: rgba(255,255,255,0.04);
+    bottom: -60px; left: 10%;
+  }
+  .shape-blob {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+    top: -100px; right: -100px;
+  }
+
+  .hero-slider {
+    position: absolute;
+    inset: 0;
+  }
+
+  /* Slide */
+  .hero-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.85s ease;
+    pointer-events: none;
+  }
+
+  .hero-slide.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Content */
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 88px;
+  }
+
+  .hero-eyebrow {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.95);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.35rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(6px);
+    animation: heroTextIn 0.8s ease both;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', 'Noto Serif Tamil', serif;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 800;
+    color: white;
+    line-height: 1.15;
+    max-width: 680px;
+    margin-bottom: 1.25rem;
+    animation: heroTextIn 0.8s 0.1s ease both;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.95rem, 2vw, 1.2rem);
+    color: rgba(255, 255, 255, 0.82);
+    max-width: 540px;
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+    line-height: 1.65;
+    animation: heroTextIn 0.8s 0.2s ease both;
+  }
+
+  @keyframes heroTextIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: heroTextIn 0.8s 0.3s ease both;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: #C2410C;
+    color: white;
+    padding: 0.9rem 2.25rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.05rem;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 18px rgba(194, 65, 12, 0.45);
+  }
+
+  .btn-primary:hover {
+    background: #9A3412;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(194, 65, 12, 0.5);
+  }
+
+  .btn-ghost {
+    display: inline-block;
+    border: 2px solid rgba(255,255,255,0.85);
+    color: white;
+    padding: 0.9rem 2rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: all 0.25s ease;
+    backdrop-filter: blur(4px);
+  }
+
+  .btn-ghost:hover {
+    background: rgba(255,255,255,0.18);
+    border-color: white;
+    transform: translateY(-2px);
+  }
+
+  /* Dots */
+  .hero-dots {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.6rem;
+    z-index: 10;
+  }
+
+  .hero-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+  }
+
+  .hero-dot.active {
+    background: #C2410C;
+    width: 28px;
+    border-radius: 5px;
+  }
+
+  /* Arrows */
+  .hero-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.35);
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    backdrop-filter: blur(4px);
+  }
+
+  .hero-arrow:hover {
+    background: #C2410C;
+    border-color: #C2410C;
+    transform: translateY(-50%) scale(1.08);
+  }
+
+  .hero-prev { left: 1.5rem; }
+  .hero-next { right: 1.5rem; }
+
+  /* Scroll indicator */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    opacity: 0.7;
+  }
+
+  .scroll-arrow {
+    width: 20px;
+    height: 20px;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    transform: rotate(45deg);
+    animation: scrollBounce 1.5s infinite;
+  }
+
+  @keyframes scrollBounce {
+    0%, 100% { transform: rotate(45deg) translateY(0); opacity: 0.7; }
+    50% { transform: rotate(45deg) translateY(5px); opacity: 1; }
+  }
+
+  /* Mobile */
+  @media (max-width: 640px) {
+    .hero { min-height: 80svh; }
+    .hero-ctas { flex-direction: column; }
+    .btn-primary, .btn-ghost { text-align: center; padding: 0.8rem 1.5rem; }
+    .hero-prev { left: 0.75rem; }
+    .hero-next { right: 0.75rem; }
+    .hero-arrow { width: 38px; height: 38px; }
+    .scroll-indicator { display: none; }
+    .shape-circle, .shape-ring, .shape-diamond, .shape-arc, .shape-blob { display: none; }
+  }
+</style>

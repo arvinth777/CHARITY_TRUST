@@ -1,0 +1,123 @@
+---
+// src/components/ImpactStats.astro
+import { siteConfig } from '../config/site';
+const { impact } = siteConfig;
+---
+
+<section id="impact" class="impact-section" aria-label="Impact statistics">
+  <div class="section-container">
+    <div class="impact-grid">
+      {impact.map((stat, i) => (
+        <div class="impact-card" data-target={stat.number} style={`animation-delay: ${i * 0.1}s`}>
+          <div class="impact-number" data-target={stat.number}>
+            {stat.number}
+          </div>
+          <div class="impact-label">
+            <span class="lang-en">{stat.label.en}</span>
+            <span class="lang-ta">{stat.label.ta}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  // Count-up animation on scroll
+  function animateCount(el) {
+    const target = el.getAttribute('data-target');
+    const numericTarget = parseInt(target.replace(/\D/g, ''), 10);
+    const suffix = target.replace(/[0-9]/g, '');
+    const duration = 1800;
+    const step = 16;
+    const increment = numericTarget / (duration / step);
+    let count = 0;
+
+    const timer = setInterval(() => {
+      count = Math.min(count + increment, numericTarget);
+      el.textContent = Math.floor(count) + suffix;
+      if (count >= numericTarget) clearInterval(timer);
+    }, step);
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const numbers = entry.target.querySelectorAll('.impact-number');
+        numbers.forEach(n => animateCount(n));
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const impactSection = document.getElementById('impact');
+  if (impactSection) observer.observe(impactSection);
+</script>
+
+<style>
+  .impact-section {
+    background: linear-gradient(135deg, #C2410C 0%, #9A3412 100%);
+    padding-block: 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .impact-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .impact-card {
+    text-align: center;
+    padding: 2rem 1rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, background 0.3s ease;
+    animation: fadeInUp 0.7s ease both;
+  }
+
+  .impact-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.18);
+  }
+
+  .impact-number {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: white;
+    line-height: 1;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .impact-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 768px) {
+    .impact-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 480px) {
+    .impact-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .impact-card { padding: 1.5rem 0.75rem; }
+  }
+</style>
