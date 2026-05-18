@@ -5,6 +5,11 @@ const { heroSlides } = siteConfig;
 ---
 
 <section id="hero" class="hero" aria-label="Hero banner">
+  <!-- Watermark Logo -->
+  <div class="hero-watermark">
+    <img src="/logo.png" alt="" aria-hidden="true" />
+  </div>
+
   <!-- Slides -->
   <div class="hero-slider" id="hero-slider">
 
@@ -158,6 +163,22 @@ const { heroSlides } = siteConfig;
     position: relative;
     height: max(100svh, 680px);
     overflow: hidden;
+  }
+
+  .hero-watermark {
+    position: absolute;
+    top: 50%;
+    right: -10%;
+    transform: translateY(-50%);
+    z-index: 1;
+    opacity: 0.05;
+    pointer-events: none;
+  }
+
+  .hero-watermark img {
+    width: 900px;
+    height: auto;
+    filter: grayscale(100%) brightness(1000%);
   }
 
   /* Slide backgrounds */
@@ -349,6 +370,11 @@ const { heroSlides } = siteConfig;
 
 
   /* Mobile */
+  @media (max-width: 1023px) {
+    .hero-watermark { right: -30%; }
+    .hero-watermark img { width: 700px; }
+  }
+
   @media (max-width: 640px) {
     .hero { min-height: 80svh; }
     .hero-content { padding: 0 1.5rem; }
@@ -357,5 +383,7 @@ const { heroSlides } = siteConfig;
     .hero-prev { left: 0.75rem; }
     .hero-next { right: 0.75rem; }
     .hero-arrow { width: 38px; height: 38px; }
+    .hero-watermark { right: -40%; }
+    .hero-watermark img { width: 500px; }
   }
 </style>
