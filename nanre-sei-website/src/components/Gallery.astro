@@ -34,19 +34,6 @@ const { gallery, galleryCategories } = siteConfig;
 
     <!-- Photo tab content -->
     <div id="gallery-photo-content">
-      <!-- Category Filter -->
-      <div class="gallery-filters" role="group" aria-label="Gallery category filter">
-        {galleryCategories.map(cat => (
-          <button
-            class={`gallery-filter-btn ${cat.id === 'all' ? 'active' : ''}`}
-            data-gallery-filter={cat.id}
-            id={`gallery-filter-${cat.id}`}
-          >
-            <span class="lang-en">{cat.label.en}</span>
-            <span class="lang-ta">{cat.label.ta}</span>
-          </button>
-        ))}
-      </div>
 
       <!-- Image Grid -->
       <div class="gallery-grid" id="gallery-grid">
@@ -78,7 +65,7 @@ const { gallery, galleryCategories } = siteConfig;
         </svg>
         <p class="lang-en">Videos coming soon. Follow us on Facebook for event videos.</p>
         <p class="lang-ta">வீடியோக்கள் விரைவில் வருகின்றன. நிகழ்வு வீடியோக்களுக்கு Facebook இல் எங்களைப் பின்தொடருங்கள்.</p>
-        <a href="https://www.facebook.com/nanreseitrust" target="_blank" rel="noopener" class="btn-facebook">
+        <a href={siteConfig.contact.facebook} target="_blank" rel="noopener" class="btn-facebook">
           Follow on Facebook
         </a>
       </div>
@@ -101,33 +88,6 @@ const { gallery, galleryCategories } = siteConfig;
 </section>
 
 <script is:inline>
-  // Gallery category filter
-  const galleryFilterBtns = document.querySelectorAll('.gallery-filter-btn');
-  const galleryCards = document.querySelectorAll('.gallery-card');
-
-  galleryFilterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const filter = btn.getAttribute('data-gallery-filter');
-      galleryFilterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      galleryCards.forEach(card => {
-        const cat = card.getAttribute('data-category');
-        if (filter === 'all' || cat === filter) {
-          card.style.display = '';
-          card.style.opacity = '0';
-          requestAnimationFrame(() => {
-            card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-            card.style.opacity = '1';
-            card.style.transform = 'scale(1)';
-          });
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    });
-  });
-
   // Photo / Video tab toggle
   document.getElementById('tab-photo')?.addEventListener('click', () => {
     document.getElementById('gallery-photo-content').style.display = '';
@@ -250,38 +210,6 @@ const { gallery, galleryCategories } = siteConfig;
     color: #C2410C;
   }
 
-  /* Category Filters */
-  .gallery-filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-    justify-content: center;
-    margin-bottom: 2rem;
-  }
-
-  .gallery-filter-btn {
-    padding: 0.4rem 1rem;
-    border-radius: 100px;
-    border: 1.5px solid #E5E7EB;
-    background: white;
-    color: #374151;
-    font-size: 0.82rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    font-family: 'Lato', 'Noto Sans Tamil', sans-serif;
-  }
-
-  .gallery-filter-btn.active {
-    background: #1E3A8A;
-    border-color: #1E3A8A;
-    color: white;
-  }
-
-  .gallery-filter-btn:not(.active):hover {
-    border-color: #1E3A8A;
-    color: #1E3A8A;
-  }
 
   /* Grid — ViswaSanthi style */
   .gallery-grid {
